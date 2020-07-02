@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import LoadingBar from 'react-redux-loading';
@@ -19,9 +19,10 @@ class App extends Component {
       <LoadingBar />
       <div className='container'>
         
-        <Nav />
+        
         {this.props.loading === true ? null : 
         <div>
+          <Nav />
           <Route exact path='/' component={Dashboard} />
           <Route exact path='/tweet/:id' component={TweetPage} />
           <Route exact path='/new' component={NewTweet} />
